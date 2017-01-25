@@ -50,6 +50,10 @@ namespace Project1
 
             app.UseApplicationInsightsExceptionTelemetry();
 
+            app.UseDefaultFiles();
+
+            app.UseStaticFiles();
+
             app.UseMvc();
         }
     }
