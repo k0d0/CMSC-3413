@@ -1,3 +1,3 @@
-cd Project1
+cd Project1/src
 dotnet restore
 dotnet run
