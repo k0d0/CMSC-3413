@@ -1,0 +1,13 @@
+﻿body {
+    background-color:gray;
+    font-family:'Courier New';
+    color: white;
+}
+
+h1 {
+    color:aquamarine;
+}
+
+a:visited {
+    color:mediumvioletred;
+}

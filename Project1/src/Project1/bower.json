@@ -1,0 +1,22 @@
+{
+  "name": "Project1",
+  "homepage": "https://github.com/k0d0/CMSC-3413",
+  "authors": [
+    "k0d0 <kylejencks@gmail.com>"
+  ],
+  "description": "bower p1",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "2.2.3",
+    "bootstrap": "3.3.6"
+  }
+}
