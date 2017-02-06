@@ -1,0 +1,21 @@
+{
+  "name": "Project2",
+  "homepage": "https://github.com/k0d0/CMSC-3413",
+  "authors": [
+    "k0d0 <kylejencks@gmail.com>"
+  ],
+  "description": "EP Project2",
+  "main": "Project2",
+  "keywords": [
+    "p2"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
