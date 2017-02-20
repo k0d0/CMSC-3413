@@ -1,10 +1,75 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
+    <head>
+        <meta charset="utf-8" />
+        <title>My Resume</title>
+        <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="css/site.css" />
+    </head>
+        <body class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><h1>Resume</h1></div>
+        </div>
 
-</body>
+<!-Navbar->
+        <nav class="navbar navbar-default navbar-light bg-info" role="navigation">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Kyle Jencks</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li class="active"><a href="Resume.html">Resume</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="panel panel-body">
+            <div class="panel panel-heading"><h1>Kyle Jencks</h1></div>
+
+            <div class="panel panel-body">
+                <h2>Education</h2>
+                <ol>
+                    <li>Graduated 2013 Western Oklahoma State College with an A.S in Computers and Information Systems</li>
+                    <li>Senior at Univeristy of Central Oklahoma in pursuit of B.A in Computer Science and Information Science</li>
+                </ol>
+                <h2>Work History</h2>
+                <ol>
+                    <li>USA Swimming Western Oklahoma State Waterdogs  - Head Coach</li>
+                    <li>Western Oklahoma State College - Service Technician and Help Desk Support</li>
+                    <li>University of Central Oklahoma - Student Support Technician I</li>
+                </ol>
+            </div>
+
+            <br/>
+            <br/>
+            <!-Progress->
+            <div class="panel panel-body">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">C/C++</div>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 75%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Java</div>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 25%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">PHP</div>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 10%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">Javascript</div>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 75%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">HTML,CSS</div>
+                </div>
+            </div>
+
+            <div class="panel panel-footer">
+                <h5>Find me on <a href="https://www.linkedin.com/in/kyle-jencks-1b802310a/">LinkdIn</a>!</h5> or...
+                <br />
+                <h6>Contact me by email <a href="contact.html">here!</a></h6>
+            </div>
+        </div>
+
+    </body>
 </html>
