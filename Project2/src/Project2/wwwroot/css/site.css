@@ -1,5 +1,14 @@
 ﻿body {
     background-color:dimgrey;
-    font-family:Arial;
+    font-family:'Arial';
+}
+
+p {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+div {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
 }
 
