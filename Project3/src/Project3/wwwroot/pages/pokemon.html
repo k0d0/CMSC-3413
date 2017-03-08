@@ -1,0 +1,39 @@
+<div class='panel panel-danger'>
+    <div class="pull-left">
+        <img ng-src='{{pokemon.img}}' class='pull-left' />
+    </div>
+    <div class='panel-body'>
+        <h4><b>Name:</b>  {{pokemon.name}} </h4>
+        <h4>
+            <b>Type: </b>
+            <!--Not pulling tpyes :(-->
+            <span ng-repeat="type in pokemon.type" class='label type' ng-class='type.name'>
+                {{pokemon.type}}
+            </span>
+        </h4>
+        {{pokeID}}
+        <div class="panel panel-danger">
+            <div class="panel panel-heading"><h3>Stats</h3></div>
+            <div class="panel panel-body">
+                <h5 class="stats">Height: {{pokemon.weight}}</h5>
+                <h5 class="stats">Weight: {{pokemon.height}}</h5>
+                <h5 class="stats">Base Experience: {{pokemon.base_experience}}</h5>
+                <h5 class="stats">Speed: {{pokemon.stats[0].base_stat}}</h5>
+                <h5 class="stats">Sp Defense: {{pokemon.stats[0].base_stat}}</h5>
+                <h5 class="stats">Sp Attack: {{pokemon.stats[0].base_stat}}</h5>
+                <h5 class="stats">Defense: {{pokemon.stats[0].base_stat}}</h5>
+                <h5 class="stats">Attack: {{pokemon.stats[0].base_stat}}</h5>
+                <h5 class="stats">HP: {{pokemon.stats[0].base_stat}}</h5>
+            </div>
+        </div>
+        <ui-view name='moves'></ui-view>
+        <ui-view name='evo'></ui-view>
+    </div>
+</div>
+<a href="/#" class='btn btn-danger'>
+    Back to list
+</a>
+<br/>
+<br />
+<br />
+<br />

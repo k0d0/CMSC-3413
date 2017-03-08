@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pokedex</title>
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/site.css">
+    <script type="text/javascript" src='lib/angular/angular.js'></script>
+    <script type="text/javascript" src='lib/angular-bootstrap/ui-bootstrap-tpls.js'></script>
+    <script type="text/javascript" src='lib/angular-ui-router/release/angular-ui-router.js'></script>
+    <script type="text/javascript" src='js/directives.js'></script>
+    <script type="text/javascript" src='js/services.js'></script>
+    <script type="text/javascript" src='js/controllers.js'></script>
+    <script type="text/javascript" src='js/app.js'></script>
+ 
+</head>
+<body ng-app="pokedex">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+
+            <!-- Navbar: Title -->
+            <div class="navbar-header">
+                <h4 class="navbar-brand"><span class="glyphicon glyphicon-phone"></span> My Pokedex</h4>
+            </div>
+
+            <!-- Navbar: Search-->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav pull-right">
+                    <li><a href="#/"><h4><span class="glyphicon glyphicon-list"></span> List</h4></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <breadcrumbs></breadcrumbs>
+    <div class='container'>
+        <div class="panel panel-header">
+            <h1 class='text-center'>Pokedex</h1>
+        </div>
+        <ui-view></ui-view>
+    </div>
+</body>
+</html>

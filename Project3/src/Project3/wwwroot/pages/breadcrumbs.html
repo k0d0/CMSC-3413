@@ -1,0 +1,9 @@
+<!--Currently Not Working-->
+<ol class="breadcrumb">
+    <li ui-sref-active='active'>
+        <a ui-sref="pokemons">Pokemon</a>
+    </li>
+    <li ng-repeat='nav in navigation'>
+        <a ng-click="back(navigation.length - $index - 1)">{{nav.name}}</a>
+    </li>
+</ol>

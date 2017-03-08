@@ -1,0 +1,16 @@
+    <!--Poke does not evolve-->
+<div ng-show='pokemon.evolutions.length == 0' class='panel panel-danger'>
+    <h1 class='text-center'>Does Not Evolve!</h1>
+</div>
+    <!--Poke does evolve-->
+<div ng-repeat="evo in pokemon.evolutions" class='panel panel-danger'>
+    <div class="panel panel-heading"><h3>Evolution</h3></div>
+    <div class='panel-body'>
+        <h3 class="pull-left">{{pokemon.name}} evolves into...</h3>
+        <img ng-src='{{evo.img}}' class='pull-left' height="100" />
+        <h4>#{{evo.id}} {{evo.to}}</h4>
+        <a ui-sref='pokemon({id:evo.id})' class='btn btn-danger'>
+            View Details
+        </a>
+    </div>
+</div>
