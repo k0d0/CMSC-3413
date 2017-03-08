@@ -2,7 +2,6 @@
     angular.module('pokedex.controllers', [])
         .controller('PokemonsController', PokemonsController)
         .controller('PokemonDetailController', PokemonDetailController)
-        .controller('StatController', StatController)
         .controller('MovesController', MovesController);
 
     PokemonsController.$inject = ['$scope', 'Pokemons', 'History'];
