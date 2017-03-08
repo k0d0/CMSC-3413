@@ -1,0 +1,32 @@
+<div class="panel panel-danger">
+    <div class="panel panel-heading"><h3>Abilities</h3><h4>(click to view more info..)</h4></div>
+    <div class="panel panel-body">
+        <div class='panel panel-warning' ng-show='movement'>
+            <div class='panel-heading'>{{movement.name}}</div>
+            <div class='panel-body'>
+                {{movement.description}}
+                <ul>
+                    <li>
+                        <b>Power:</b> {{movement.power}}
+                    </li>
+                    <li>
+                        <b>Accuracy:</b> {{movement.accuracy}}
+                    </li>
+                    <li>
+                        <b>PP:</b> {{movement.pp}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <ul class='nav nav-pills'>
+        <li ng-repeat="move in pokemon.moves" ng-class="{ active : isActive(move.resource_uri.split('/')[4]) } ">
+            <a ng-click="verMovimento(move.resource_uri.split('/')[4])" class='nav-pill'>
+                <div>
+                    <span class='glyphicon glyphicon-link'>{{move.name}}</span>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+
