@@ -47,6 +47,19 @@
             return defered.promise;
         }
 
+        function getBase_Experience(id) {
+            var defered = $q.defer();
+            var url = PokeapiURL + 'base_experience/' + id;
+            $http.get(url, { cache: true })
+                .success(function (response) {
+                    defered.resolve(response)
+                })
+                .error(function () {
+                    defered.reject([]);
+                });
+            return defered.promise;
+        }
+
         function buildPokemon(pokemon) {
             var parts = pokemon.resource_uri.split('/');
             var id = parts[parts.length - 2];
