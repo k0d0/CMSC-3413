@@ -1,0 +1,159 @@
+﻿<div>
+    <center><h2>To Do List</h2></center>
+</div>
+
+<br />
+<div class="panel panel-body">
+    <div class="row">
+        <div class="col-xs-4">
+            <form class="form-inline" name="tagSearchForm">
+                <div class="form-group">
+                    <label for="searchBar">Search Tags:</label>
+                    <input id="tagField" name="tagField" class="form-control" type="text" ng-model="searchString" ng-change="searchTags()" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-body">
+    <div class="panel panel-info">
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th><a ng-click="sortDesc()" uib-tooltip="Sort by description">Description</a></th>
+                <th><a ng-click="sortDate()" uib-tooltip="Sort by due date">Due Date</a></th>
+                <th>Tags</th>
+                <th>Status</th>
+            </tr>
+            <tr ng-repeat="project in project.projects">
+                <td>{{project.name}}</td>
+                <td>{{project.description}}</td>
+                <td>{{project.dueDate}}</td>
+                <td>{{project.tags}}</td>
+                <td>{{project.status}}</td>
+                <td><a data-toggle="modal" data-target="#modifyItemModal" ng-click="openModifier(project)">Modify</a></td>
+                <td ng-if="project.status == 'COMPLETE'"><a ng-click="(delete(project))">Delete</a></td>
+            </tr>
+        </table>
+        <br />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-4">
+        <button type="button" class="btn-default btn-sm" data-toggle="modal" data-target="#newItemModal">
+            Add new item
+        </button>
+        <button type="button" class="btn-default btn-sm" data-toggle="modal" data-target="#settingsModal">
+            Edit settings
+        </button>
+    </div>
+</div>
+<!-- Warning window -->
+<div class="modal fade" id="settingsModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Settings</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-inline">
+                    <label for="warningWindow">Warning Window <small>in hours</small></label>
+                    <input type="text" id="warningWindow" class="form-control intput-sm" ng-model="settings.warningWindow" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" ng-click="updateWindow()" data-dismiss="modal">Update</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!--Add item window-->
+<div class="modal fade" id="newItemModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">New Item</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <fieldset class="form-group">
+                        <label for="description">Name</label>
+                        <input type="text" class="form-control" id="name" ng-model="newItem.name" />
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <label for="description">Description</label>
+                        <input type="text" class="form-control" id="description" ng-model="newItem.description" />
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <label for="date">Due Date</label>
+                        <input type="text" class="form-control" id="duedate" ng-model="newItem.dueDate" />
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <label for="tags">Tags</label>
+                        <input type="text" class="form-control" id="tags" ng-model="newItem.tags" />
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <label for="status">Status</label>
+                        <select name="status" style="width: 100%; height: 32px" id="status" typeof="text" ng-model="newItem.status">
+                            <option selected="selected" value="INCOMPLETE">INCOMPLETE</option>
+                            <option value="COMPLETE">COMPLETE</option>
+                        </select>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" name="addItem" class="btn btn-success" ng-click="addItem()" data-dismiss="modal">Add Item</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- modify item window -->
+<div class="modal fade" id="modifyItemModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Modify item</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="desc">Description</label>
+                        <input type="text" class="form-control" id="desc" ng-model="modifiedItem.description" />
+                    </div>
+                    <div class="form-group">
+                        <label for="dd">Due Date</label>
+                        <input type="text" class="form-control" id="duedate" ng-model="modifiedItem.dueDate" />
+                    </div>
+                    <div class="form-group">
+                        <label for="tag">Tags</label>
+                        <input type="text" class="form-control" id="tag" ng-model="modifiedItem.tags" />
+                    </div>
+                    <div class="form-group">
+                        <label for="st">Status</label>
+                        <select id="st" typeof="text" ng-model="modifiedItem.status">
+                            <option selected="selected" value="INCOMPLETE">INCOMPLETE</option>
+                            <option value="COMPLETE">COMPLETE</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancelModify()">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="modify()">Save changes</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
