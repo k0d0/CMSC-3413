@@ -1,57 +1,53 @@
 ﻿<div>
-    <center><h2>To Do List</h2></center>
-</div>
-
-<br>
-
-<div class="panel panel-body">
+    <h1 class="text-center text-primary">TODO LIST</h1>
+    <h4 class="text-danger" ng-if="error">Error! We could not {{error}}</h4>
     <div class="row">
         <div class="col-xs-4">
             <form class="form-inline" name="tagSearchForm">
+                <h5>Search by tags</h5>
                 <div class="form-group">
-                    <label for="searchBar">Search Tags:</label>
+                    <label for="searchBar">Tag(s):</label>
                     <input id="tagField" name="tagField" class="form-control" type="text" ng-model="searchString" ng-change="searchTags()" />
                 </div>
             </form>
         </div>
-    </div>
-</div>
 
-<div class="panel panel-body">
-    <div class="panel panel-info">
-        <table class="table">
+        <div class="col-xs-offset-4 col-xs-4">
+            <br /><br />
+            <button class="btn btn-info btn-sm" ng-click="switchStatus()">View {{nextStatus}} items</button>
+            <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#newItemModal">
+                Add new item
+            </button>
+            <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#settingsModal">
+                Edit settings
+            </button>
+        </div>
+    </div>
+
+    <br />
+
+    <div >
+        <table class="table table-stripe" d>
             <tr>
-                <th>Name</th>
                 <th><a ng-click="sortDesc()" uib-tooltip="Sort by description">Description</a></th>
                 <th><a ng-click="sortDate()" uib-tooltip="Sort by due date">Due Date</a></th>
                 <th>Tags</th>
                 <th>Status</th>
+                <th></th>
+                <th></th>
             </tr>
-            <tr ng-repeat="project in project.projects">
-                <td>{{project.name}}</td>
-                <td>{{project.description}}</td>
-                <td>{{project.dueDate}}</td>
-                <td>{{project.tags}}</td>
-                <td>{{project.status}}</td>
-                <td><a data-toggle="modal" data-target="#modifyItemModal" ng-click="openModifier(project)">Modify</a></td>
-                <td ng-if="project.status == 'COMPLETE'"><a ng-click="(delete(project))">Delete</a></td>
+            <tr ng-repeat="result in received" class="table border-col" ng-class="result.warn">
+                <td>{{result.description}}</td>
+                <td>{{result.dueDate}}</td>
+                <td>{{result.tags}}</td>
+                <td>{{result.status}}</td>
+                <td ><a data-toggle="modal" data-target="#modifyItemModal" ng-click="openModifier(result)">Modify</a></td>
+                <td ng-if="result.status == 'COMPLETE'"><a ng-click="(delete(result))">Delete</a></td>
             </tr>
         </table>
-        <br />
     </div>
 </div>
 
-<div class="row">
-    <div class="col-xs-4">
-        <button type="button" class="btn-default btn-sm" data-toggle="modal" data-target="#newItemModal">
-            Add new item
-        </button>
-        <button type="button" class="btn-default btn-sm" data-toggle="modal" data-target="#settingsModal">
-            Edit settings
-        </button>
-    </div>
-</div>
-<!-- Warning window -->
 <div class="modal fade" id="settingsModal" tabindex="-1" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -73,7 +69,6 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<!--Add item window-->
 <div class="modal fade" id="newItemModal" tabindex="-1" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -84,18 +79,13 @@
             <div class="modal-body">
                 <form>
                     <fieldset class="form-group">
-                        <label for="description">Name</label>
-                        <input type="text" class="form-control" id="name" ng-model="newItem.name" />
-                    </fieldset>
-
-                    <fieldset class="form-group">
                         <label for="description">Description</label>
                         <input type="text" class="form-control" id="description" ng-model="newItem.description" />
                     </fieldset>
 
                     <fieldset class="form-group">
                         <label for="date">Due Date</label>
-                        <input type="text" class="form-control" id="duedate" ng-model="newItem.dueDate" />
+                        <input type="text" class="form-control" id="date" ng-model="newItem.dueDate" />
                     </fieldset>
 
                     <fieldset class="form-group">
@@ -120,7 +110,6 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<!-- modify item window -->
 <div class="modal fade" id="modifyItemModal" tabindex="-1" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -136,7 +125,7 @@
                     </div>
                     <div class="form-group">
                         <label for="dd">Due Date</label>
-                        <input type="text" class="form-control" id="duedate" ng-model="modifiedItem.dueDate" />
+                        <input type="text" class="form-control" id="dd" ng-model="modifiedItem.dueDate" />
                     </div>
                     <div class="form-group">
                         <label for="tag">Tags</label>
@@ -152,7 +141,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancelModify()">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancelModify()" >Close</button>
                 <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="modify()">Save changes</button>
             </div>
         </div><!-- /.modal-content -->
