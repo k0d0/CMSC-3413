@@ -1,0 +1,8 @@
+﻿body {
+    background-color: azure
+}
+
+.border-col > td {
+    border-right: 3px solid gray;
+    border-left: 3px solid gray;
+}
