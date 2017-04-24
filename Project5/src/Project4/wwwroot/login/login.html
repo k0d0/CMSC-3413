@@ -1,0 +1,28 @@
+﻿<div class="row">
+    <br /><br /><br /><br />
+    <div class="col-xs-4"></div>
+    <div style="background-color: lightcyan; outline: 4px ridge cyan" class="col-xs-4">
+        <h2>Log In</h2>
+        <span class="text-danger" ng-if="loginError">Error, incorrect username or password</span>
+        <form class="">
+            <div class="form-control-static">
+                <label for="userName">User Name </label>
+                <input type="text" ng-model="user.UserName" />
+            </div>
+            <div class="form-control-static">
+                <label for="password">Password  </label>
+                <input type="password" ng-model="user.Password" />
+            </div>
+            <div class="row">
+                <div class="col-xs-3"></div>
+                <div class="col-xs-6">
+                    <button class="btn btn-primary " ng-click="login()">Log in</button>
+                    <button class="btn btn-info" ng-click="create()">Sign Up</button>
+                </div>
+                <div class="col-xs-3"></div>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-xs-4"></div>
+</div>
